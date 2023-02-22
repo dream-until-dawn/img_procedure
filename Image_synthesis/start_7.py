@@ -5,9 +5,10 @@ flie_path=os.path.realpath(__file__)
 
 def get_filename(n):
     file_name_list = os.listdir(flie_path+'/../../coverage_'+str(n))
-    file_name = str(file_name_list)
-    file_name = file_name.replace("[", "").replace("]", "").replace("'", "").replace(" ", "")
-    file_name = file_name.split(',')
+    #file_name = str(file_name_list)
+    file_name = file_name_list
+    #file_name = file_name.replace("[", "").replace("]", "").replace("'", "")#.replace(" ", "")
+    #file_name = file_name.split(',')
     return file_name
 list_1=get_filename(7)
 list_2=get_filename(6)
@@ -43,11 +44,11 @@ for i_1 in list_1:
 
                     for i_6 in list_6:
                         im_6=Image.open((flie_path+'/../../coverage_2/{0}').format(i_6))
-                        image_6=im_6.copy()#打开6张
+                        image_6=im_6.copy()#打开第6张
 
                         for i_7 in list_7:
                             im_7=Image.open((flie_path+'/../../coverage_1/{0}').format(i_7))
-                            image_7=im_7.copy()#打开7张
+                            image_7=im_7.copy()#打开第7张
                             #--------------------------------------------------------------------
                             r,g,b,a = image_2.split()
                             image_1.paste(image_2,(0,0),a)#叠加第2张
@@ -62,7 +63,9 @@ for i_1 in list_1:
                             r,g,b,a = image_7.split()
                             image_1.paste(image_7,(0,0),a)#叠加第7张
                             #--------------------------------------------------------------------
-                            image_1.save(flie_path+'/../../save/{0}{1}{2}{3}{4}{5}{6}.png'.format(i_7[:-4],i_6[:-4],i_5[:-4],i_4[:-4],i_3[:-4],i_2[:-4],i_1[:-4]))
+                            image_1.save(flie_path+'/../../save/{0}{1}{2}{3}{4}{5}.png'.format(i_7[:-4],i_6[:-4],i_5[:-4],i_4[:-4],i_3[:-4],i_1[:-4]))
                             print('合成第{0}张,进度---({1}/{2})'.format(count_num,count_num,max_num))
                             count_num+=1
+                            #if count_num >100:
+                                #exit()
 
