@@ -36,9 +36,8 @@ for key, value in ImgName.items():  # 拿到键值对
         ImgObjest_z.append(Image.open((flie_path+'/../{0}/{1}').format(key, img)))  # 得到所有需拼接的透明通道
     ImgObjest.append(ImgObjest_z)
 
-compoundList = [0 for x in ImgObjest]
 compoundList_max = [len(x) for x in ImgObjest]
-max_compoundList = len(compoundList)
+max_compoundList = len(compoundList_max)
 
 
 def recursion(base_img,img_x,img_str):#传进的底图，二维数组x位置，所经途径,计数
